@@ -1,3 +1,7 @@
 body {
     background-color: azure;
 }
+
+.card {
+    margin-bottom: 15px;
+}
