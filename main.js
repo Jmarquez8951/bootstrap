@@ -97,4 +97,23 @@ const ducks = [
     }
 ];
 
-console.log(ducks);
+const printToDom = (divId, textToPrint) => {
+    const selectedDiv = document.getElementById(divId);
+    selectedDiv.innerHTML = textToPrint;
+};
+
+const duckPrinter = (quacks) => {
+    let domString = '';
+    for (let i = 0; i < quacks.length; i++){
+        domString += '<div class="duck-card">';
+        domString += `<h2>${quacks[i].name}</h2>`;
+        domString += '</div>';
+    }
+    printToDom('card-container', domString);
+};
+
+const init = () => {
+    duckPrinter(ducks);
+};
+
+init();
