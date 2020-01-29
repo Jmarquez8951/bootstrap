@@ -4,7 +4,7 @@ const ducks = [
         isRubber: true,
         gender: 'female',
         isMigrator: false,
-        socialStatus: 'ready to mingle',
+        socialStatus: 'single',
         diet: 'vegan',
         age: 47,
         featherNum: 0,
@@ -16,7 +16,7 @@ const ducks = [
         isRubber: false,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'not ready to mingle',
+        socialStatus: 'single',
         diet: 'meat',
         age: 10,
         featherNum: 2,
@@ -28,7 +28,7 @@ const ducks = [
         isRubber: false,
         gender: 'female',
         isMigrator: false,
-        socialStatus: 'ready to mingle',
+        socialStatus: 'single',
         diet: 'vegan',
         age: 5,
         featherNum: 3300,
@@ -40,7 +40,7 @@ const ducks = [
         isRubber: true,
         gender: 'male',
         isMigrator: false,
-        socialStatus: 'not ready to mingle',
+        socialStatus: 'single',
         diet: 'vegan',
         age: 21,
         featherNum: 0,
@@ -52,7 +52,7 @@ const ducks = [
         isRubber: false,
         gender: 'female',
         isMigrator: true,
-        socialStatus: 'not ready to mingle',
+        socialStatus: 'married',
         diet: 'meat',
         age: 90,
         featherNum: 5000,
@@ -64,7 +64,7 @@ const ducks = [
         isRubber: true,
         gender: 'male',
         isMigrator: false,
-        socialStatus: 'ready to mingle',
+        socialStatus: 'taken',
         diet: 'meat',
         age: 30,
         featherNum: 0,
@@ -76,19 +76,19 @@ const ducks = [
         isRubber: true,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'not ready to mingle',
+        socialStatus: 'single',
         diet: 'pescatarian',
         age: 50,
         featherNum: 0,
         name: 'Jimmy',
-        imgUrl: 'https://www.amsterdamduckstore.com/wp-content/uploads/2016/02/coffee-rubber-duck-leaning.jpg'
+        imgUrl: 'https://i.ebayimg.com/images/g/cDoAAOSw9ZhbbaPr/s-l640.jpg'
     },
     {
         color: 'red',
         isRubber: true,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'ready to mingle',
+        socialStatus: 'single',
         diet: 'vegetarian',
         age: 14,
         featherNum: 0,
@@ -105,11 +105,18 @@ const printToDom = (divId, textToPrint) => {
 const duckPrinter = (quacks) => {
     let domString = '';
     for (let i = 0; i < quacks.length; i++){
-        domString += '<div class="duck-card">';
-        domString += `<h2>${quacks[i].name}</h2>`;
+        domString += '<div class="col-md-6 col-lg-4">';
+        domString += ' <div class="card ">';
+        domString += `   <img src="${quacks[i].imgUrl}" class="card-img-top" alt="...">`;
+        domString += '   <div class="card-body">';
+        domString += `     <h5 class="card-title">${quacks[i].name}</h5>`;
+        domString += `     <p class="card-text">${quacks[i].socialStatus}</p>`;
+        domString += `     <p class="card-text">${quacks[i].diet}</p>`;
+        domString += '   </div>';
+        domString += ' </div>';
         domString += '</div>';
     }
-    printToDom('card-container', domString);
+    printToDom('pond', domString);
 };
 
 const init = () => {
